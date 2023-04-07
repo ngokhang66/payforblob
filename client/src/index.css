@@ -1,0 +1,130 @@
+:root {
+  --inspiring-red: #c73434;
+  --inspiring-red-hover: #df4343;
+  --relaxing-pink: #e02778;
+  --yellow-star: #f0d121;
+  --dark-slate-gray: #2f2f2f;
+  --fa-white: #f7f7f7;
+  --not-pure-white: #fdfdfd;
+  --white-hover: #f8f8f8;
+  --light-gray: #eaeaea;
+  --fine-gray: #f0f0f0;
+  --gray: #c0c0c0;
+  --warm: #fffeef;
+  --smoke: #f1f2f9;
+  --sea-greener: #189b94;
+  --blue: #1890ff;
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+      line-height: 22px;
+    font-weight: 400;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body {
+  background-color: whitesmoke !important;
+}
+
+/** Font */
+.fsr-0 {
+  font-size: 0.75rem;
+}
+
+.fsr-1 {
+  font-size: 0.875rem;
+}
+
+.fsr-2 {
+  font-size: 1rem;
+}
+
+.fsr-3 {
+  font-size: 1.25rem;
+}
+
+.fsr-4 {
+  font-size: 1.5625rem;
+}
+
+.fsr-5 {
+  font-size: 1.875rem;
+}
+
+.fsr-6 {
+  font-size: 2.1875rem;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+.fw-200 {
+  font-weight: 200;
+}
+
+.Center {
+  position: fixed;
+  /* top: 50%; */
+  /* left: 55%; */
+  right: 45%;
+  /* margin-top: -100px;
+    margin-left: -100px; */
+}
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+  /* background-color: #ffffff !important; */
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.menu-style {
+  height: 100vh;
+  width: 200px;
+  max-height: 240;
+
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+    padding: 0;
+      display: inline-block;
+        text-align: left;
+}
