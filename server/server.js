@@ -8,8 +8,16 @@ const helmet = require("helmet");
 const xss = require("xss-clean");
 const expressLimiter = require("express-rate-limit");
 const axios = require("axios");
+const { Configuration, OpenAIApi } = require("openai");
 
 require("dotenv").config();
+
+const configuration = new Configuration({
+  organization: "org-FXbquBcZtKiHM90gOWZgdr5h",
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
 
 const app = express();
 
@@ -67,10 +75,38 @@ app.get(
   `${process.env.API}/namespaced_shares/:id/height/:height`,
   async (req, res) => {
     const { id, height } = req.params;
+    
+    const convert = (from, to) => (str) => Buffer.from(str, from).toString(to);
+    const hexToString = convert("hex", "utf8");
+    const base64ToHex = convert("base64", "hex");
+    
     axios
       .get(`${process.env.LOCALHOST}/namespaced_shares/${id}/height/${height}`)
-      .then((resp) => {
-        res.json(resp.data);
+      .then( async (resp) => {
+        const shares = await resp.data.shares;
+        const prompt = hexToString(base64ToHex(shares[0].slice(16)));
+      
+        try {
+          const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: prompt }],
+            max_tokens: 1024,
+            temperature: 0.9,
+          });
+          
+          res.json({share: completion.data.choices[0].message.content});
+          
+        } catch (error) {
+          if (error.response) {
+            console.log(error.response.status);
+            console.log(error.response.data);
+            res.json(error.response.status);
+          } else {
+            console.log(error.message);
+            res.json(error.message);
+          }
+        }
+        
       })
       .catch((error) => {
         console.error(error);
