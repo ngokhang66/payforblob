@@ -94,7 +94,7 @@ app.get(
             temperature: 0.9,
           });
           
-          res.json({share: completion.data.choices[0].message.content, height: resp.data.height});
+          res.json({shares: completion.data.choices[0].message.content, height: resp.data.height});
           
         } catch (error) {
           if (error.response) {
