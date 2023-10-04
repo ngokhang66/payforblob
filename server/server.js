@@ -13,7 +13,7 @@ const { Configuration, OpenAIApi } = require("openai");
 require("dotenv").config();
 
 const configuration = new Configuration({
-  organization: "org-FXbquBcZtKiHM90gOWZgdr5h",
+  organization: process.env.ORGANIZATION,,
   apiKey: process.env.OPENAI_API_KEY,
 });
 
