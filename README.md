@@ -1,4 +1,4 @@
-# Full stack application for submitting PayForBlob transactions
+# Full stack application for submitting PayForBlob transactions on Celestia Testnet
 This is an example application built with Reactjs on the frontend and Expressjs on the backend. Deploy and use on Ubuntu server + Nginx.
 # Desription
 Create UI for allowing users to submit PayForBlob Transactions. It shows you how you can call the API in order to submit a PFB transaction, and how to retrieve the data by block height and namespace. Testing on Blockspace Race network.
